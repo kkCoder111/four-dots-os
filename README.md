@@ -1,3 +1,3 @@
-# four-dots-os
-hi there this is ivy <br>
-this is an html/js based os simulator
+# Four Dots OS
+This is a Web OS that is currently in beta. <br>
+Features may break.
