@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+  
+  <head>
+  	<title>Codename Blueberry v0.1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/Tiger.svg">
+  </head>
+  
+  <body>
+  	<div id="login">
+  		<p>KKCoder111</p>
+  		<input id="password" type="password" placeholder="Password">
+  		<button onclick="document.getElementById('login').style.display = 'none';">Go</button>
+  		<button onclick="
+  		if(document.getElementById('password').type == 'password') {
+  			document.getElementById('password').type = 'text';
+  		}
+  		else {
+  			document.getElementById('password').type = 'password';
+  		}
+  		">Show/Hide</button>
+  		<div id="message-bottom"></div>
+  	</div>
+  	<div id="startup">
+  		<img src="icons/fourdots.svg" width="300px">
+  		<p>Welcome to Codename Blueberry!</p>
+  		<button onclick="startup();">Begin</button>
+  	</div>
+    <div id="workbar">
+      <div class="icon" onclick="tigerMenu();"><img src="icons/fourdots.svg"></div>
+      <div class="icon"><img src="icons/Stella.svg"></div>
+      <div class="icon"><img src="icons/tmp.svg"></div>
+      <div class="icon"><img src="icons/Shell.svg"></div>
+      <div id="time" class="right" onload="getDate(this);">6:45:00 PM</div>
+      <div id="w-time"><p id="time"></p></div>
+    </div>
+    
+    
+
+    <div id="welcome" class="window" onclick="setActive('welcome');">
+      <div class="topbar" id="welcome-topbar">
+        <div class="topbar_buttons">
+          <!--<button class="window-button">-</button>-->
+          <button class="window-button" onclick="document.getElementById('welcome').style.display = 'none';">x</button>
+        </div>
+        <div class="window-text">
+          <p>Welcome</p>
+        </div>
+        
+      </div>
+      <div class="content">
+        <h1>Welcome to Blueberry.</h1>
+        <p>The enhanced version of Tiger 1 has new features to enhance your desktop. <br><br> Version 1.5 (xx/xx/2023)</p>
+        <h2>Highlights in this release:</h2>
+        <p>Not available yet</p>
+        <h2>Did you know?</h2>
+        <p>Very astonishing fact</p>
+      </div>
+    </div>
+
+    <div id="terminal" class="window" onclick="setActive('terminal');">
+      <div class="topbar" id="terminal-topbar">
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button" onclick="document.getElementById('welcome').style.display = 'none';">X</button>
+        </div>
+        <div class="window-text">
+          <p id="terminal-text">Terminal</p>
+        </div>
+        
+      </div>
+      <div class="content">
+        <div id="console">
+        	<p id="output">Welcome to KKCoder111 Terminal<br>Type 'help' for help.</p>
+        </div>
+        <input id="command" placeholder="A:\Four Dots"><button onclick="sendCommand(document.getElementById('command'));">OK</button>
+      </div>
+    </div>
+
+
+    
+    <div id="start-classic">
+      <div id="classic-buttons">
+      <button class="start-button" onclick=""><img src="icons/Tiger.svg"><p>About Tiger</p></button>
+      <button class="start-button"><img src="icons/Start Apps.svg"><p>Programs</p></button>
+      <button class="start-button"><img src="icons/Settings.svg"><p>Settings</p></button>
+      <button class="start-button"><img src="icons/Exit.svg"><p>Log Off</p></button>
+      <button class="start-button"><img src="icons/Power.svg"><p>Shut Down</p></button>
+      <button class="start-button"><img src="icons/Power.svg"><p>Restart</p></button>
+    </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
