@@ -119,7 +119,7 @@ button:active {
   background-color: rgb(55,55,55);
 }
 
-.start-button {
+.start {
   display: flex;
   height: 8vh;
   width: 220px;
