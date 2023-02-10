@@ -10,6 +10,7 @@
   
   <body>
     <img src="wallpaper/slipstream.svg" id="wallpaper">
+    
   	<div id="login">
   		<p>KKCoder111</p>
   		<input id="password" type="password" placeholder="Password">
@@ -29,13 +30,19 @@
   		<p>Welcome to Codename Blueberry!</p>
   		<button onclick="startup();">Begin</button>
   	</div>
+  	
+  	<div id="shutdown" class="fullscreen">
+  	  <div class="power-dialog">
+  	    <p class="dialog-title">Shutdown</p>
+  	    <p>Are you sure you wish to shutdown?</p>
+  	    <button>Yes</button><button>No</button>
+  	  </div>
+  	</div>
     <div id="workbar">
       <div class="icon" onclick="tigerMenu();"><img src="icons/fourdots.svg"></div>
       <div class="icon"><img src="icons/Stella.svg"></div>
       <div class="icon"><img src="icons/tmp.svg"></div>
       <div class="icon"><img src="icons/Shell.svg"></div>
-      <div id="time" class="right" onload="getDate(this);">6:45:00 PM</div>
-      <div id="w-time"><p id="time"></p></div>
     </div>
     
     
@@ -61,11 +68,11 @@
       </div>
     </div>
 
-    <div id="terminal" class="window chrome" onclick="setActive('terminal');">
-      <div class="topbar" id="terminal-topbar window-chrome">
+    <div id="terminal" class="window" onclick="setActive('terminal');">
+      <div class="topbar" id="terminal-topbar">
         <div class="topbar_buttons">
-          <button class="window-button mini">-</button>
-          <button class="window-button close" onclick="document.getElementById('welcome').style.display = 'none';">X</button>
+          <button class="window-button">-</button>
+          <button class="window-button close-button" onclick="document.getElementById('welcome').style.display = 'none';">X</button>
         </div>
         <div class="window-text">
           <p id="terminal-text">Terminal</p>
@@ -84,13 +91,12 @@
     
     <div id="start-classic">
       <div id="classic-buttons">
-        <span question="when will functions be made for this"></span>
-      <button class="start-button" onclick=""><img src="icons/Tiger.svg"><span>About Tiger</span></button>
-      <button class="start-button" onclick=""><img src="icons/Start Apps.svg"><p>Programs</p></button>
-      <button class="start-button" onclick=""><img src="icons/Settings.svg"><p>Settings</p></button>
-      <button class="start-button" onclick=""><img src="icons/Exit.svg"><p>Log Off</p></button>
-      <button class="start-button" onclick=""><img src="icons/Power.svg"><p>Shut Down</p></button>
-      <button class="start-button" onclick=""><img src="icons/Power.svg"><p>Restart</p></button>
+      <button class="classic-start-button" onclick=""><img src="icons/Tiger.svg"><p>About Tiger</p></button>
+      <button class="classic-start-button"><img src="icons/Start Apps.svg"><p>Programs</p></button>
+      <button class="classic-start-button"><img src="icons/Settings.svg"><p>Settings</p></button>
+      <button class="classic-start-button"><img src="icons/Exit.svg"><p>Log Off</p></button>
+      <button class="classic-start-button"><img src="icons/Power.svg"><p>Shut Down</p></button>
+      <button class="classic-start-button"><img src="icons/Power.svg"><p>Restart</p></button>
     </div>
     </div>
     <script src="scripts.js"></script>
