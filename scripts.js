@@ -128,6 +128,7 @@ function setActive(toSet){
   for (let i = 0; i < topbars.length; i++) {
     topbars[i].style.backgroundColor = "rgb(55,55,55)";
     topbars[i].zIndex = 0;
+	  topbars[i].classList.add("active");
   }
   
   let toChange = document.getElementById(toSet + "-topbar");
