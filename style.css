@@ -74,7 +74,7 @@ button:active {
   border-color: rgb(135,135,135);
   border-style: solid;
   border-radius: 1vw;
-  box-shadow: 4px 4px #000
+  box-shadow: 4px 4px 2px #000
 }
 
 .focused {
