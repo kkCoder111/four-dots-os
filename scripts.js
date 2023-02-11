@@ -5,11 +5,56 @@ var defaultdirs = [
     "A:\\Four Dots",
     "A:\\UserData"
   ];
+  
+var interval = window.setInterval(function(){
+  getTime();
+}, 1000)
+  
+function dclick(name){
+  openApp(name);
+}
 
-class API {
-  openApp(id){
-    document.getElementById(id).display = "block";
+function getFact(p){
+  let facts =[
+    "The workbar is semi-transparent. Put a window under it to see what we mean!",
+    "This project is made possible by directlight and kkCoder111! Please check out their respective Github pages!"
+  ];
+  
+  let ran = Math.floor(Math.random * facts.length);
+  
+  p.innerHTML = facts[ran];
+  
+}
+
+function shutdown(){
+  let windows = document.getElementsByClassName("window");
+  
+  for (i = 0; i < windows.length; i++) {
+    windows[i].style.display = "none";
+    
   }
+  
+  document.getElementById("workbar").style.display = "none";
+  
+  document.getElementById("shutdownscreen").display = "block";
+}
+
+function openApp(id){
+    document.getElementById(id).display = "block";
+}
+
+function getTime(){
+    let now = new Date();
+    let time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    time = time.split(":");
+    for(i=0;i<time.length;i++){
+      if (time[i].length == 1){
+        time[i] = "0" + time[i];
+      }
+    }
+    
+    time = time[0] + ":" + time[1] +":" + time[2];
+    document.getElementById("time").innerHTML = time;
 }
 
 function sendCommand(command) {
@@ -137,12 +182,20 @@ function dragElement(elmnt) {
 function setActive(toSet){
   let topbars = document.getElementsByClassName("topbar");
   for (let i = 0; i < topbars.length; i++) {
-    topbars[i].style.backgroundColor = "rgb(55,55,55)";
+    topbars[i].style.background = "rgb(0,0,0)";
     topbars[i].zIndex = 0;
   }
   
   let toChange = document.getElementById(toSet + "-topbar");
   
-  toChange.style.backgroundColor = "rgb(0,0,100)";
+  toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";
   toChange.style.zIndex = 1000;
+}
+
+function removeActive(){
+  let topbars = document.getElementsByClassName("topbar");
+  for (let i = 0; i < topbars.length; i++) {
+    topbars[i].style.background = "rgb(0,0,0)";
+    topbars[i].zIndex = 0;
+  }
 }
