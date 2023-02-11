@@ -48,6 +48,7 @@ button:active {
   color: rgb(255,255,255);
   background-color: rgb(0,0,0);
   border: none;
+  font-weight: bold;
 }
 
 .window-button:hover {
@@ -90,11 +91,12 @@ button:active {
 
 .window-text {
   margin-left: 10px;
-  text-align: center;
   line-height: 50%;
+  flex-grow: 1;
 }
 
 .topbar_buttons {
+  width: 130px;
   margin-left: 10px;
   margin-top: 5px;
   float: right;
@@ -127,13 +129,13 @@ button:active {
 }
 
 .icon:hover, #time:hover {
-  background-color: rgb(55,55,55);
+  background-color: rgba(55,55,55, 0.5);
 }
 
 .classic-start-button {
   display: flex;
-  height: 50px;
-  width: 220px;
+  height: 40px;
+  width: 200px;
   background-color: rgba(10,10,10, 0);
   color:rgb(255,255,255);
   margin-top: auto;
@@ -149,11 +151,12 @@ button:active {
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 10px;
+  width: 25px;
 }
 
 .classic-start-button p {
   font-family: inherit;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .classic-start-button:hover {
@@ -173,8 +176,8 @@ button:active {
   position: fixed;
   bottom: 5vh;
   left: 0;
-  width: 220px;
-  height: 300px;
+  width: 200px;
+  height: 240px;
   background-color: rgb(0,0,80);
   display: flex;
 }
@@ -209,6 +212,18 @@ button:active {
   top: 0%;
   font-size: 30px;
   text-align: center;
+}
+
+.blacky {
+  margin: auto;
+  left: 0%;
+  top: 0%;
+  font-size: 30px;
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0,0,0);
 }
 
 #startup {
@@ -281,4 +296,19 @@ button:active {
   height: 30px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#terminal {
+  display: none;
+}
+
+.open {
+  width: 25px;
+  height: 5px;
+  background-color: rgb(0,0,85);
+}
+
+#shutdownscreen {
+  z-index: 9999;
+  display: none;
 }
