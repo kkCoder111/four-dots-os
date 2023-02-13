@@ -1,3 +1,5 @@
+"use strict";
+
 var workingDir = "A:\\Four Dots";
 
 var defaultdirs = [
@@ -6,12 +8,39 @@ var defaultdirs = [
     "A:\\UserData"
   ];
   
+var title = "Four Dots OS pre-release";
+  
 var interval = window.setInterval(function(){
   getTime();
+  getDuration();
 }, 1000)
   
 function dclick(name){
   openApp(name);
+}
+
+function getDuration(){
+  let elmnt = document.getElementById("music-time");
+  let audio = document.getElementById("fdmp");
+  let duration = (audio.currentTime/audio.duration) * 100;
+  elmnt.value = duration.toString();
+}
+
+function playPause(){
+  let icon = document.getElementById("fdmp-glyph");
+  let audio = document.getElementById("fdmp");
+  console.log(audio.paused);
+  console.log(audio.currentTime);
+  if (audio.paused) {
+    audio.play()
+    icon.src = "icons/fdmp-pause.svg";
+  }
+  
+  else {
+    audio.pause()
+    icon.src = "icons/fdmp-play.svg";
+  }
+  console.log(audio.paused);
 }
 
 function getFact(p){
@@ -20,7 +49,9 @@ function getFact(p){
     "This project is made possible by directlight and kkCoder111! Please check out their respective Github pages!"
   ];
   
-  let ran = Math.floor(Math.random * facts.length);
+  let ran = Math.floor(Math.random * facts.length-1);
+  console.log(facts.length);
+  console.log(ran);
   
   p.innerHTML = facts[ran];
   
@@ -29,14 +60,22 @@ function getFact(p){
 function shutdown(){
   let windows = document.getElementsByClassName("window");
   
-  for (i = 0; i < windows.length; i++) {
+  let start = document.getElementsByClassName("start");
+  
+  for (let i = 0; i < windows.length; i++) {
     windows[i].style.display = "none";
     
   }
   
-  document.getElementById("workbar").style.display = "none";
+  for (let i = 0; i < start.length; i++) {
+    start[i].style.display = "none";
+    
+  }
   
-  document.getElementById("shutdownscreen").display = "block";
+  document.getElementById("workbar").style.display = "none";
+  document.getElementById("shutdown").style.display = "none";
+  
+  document.getElementById("shutdownscreen").style.display = "block";
 }
 
 function openApp(id){
@@ -47,7 +86,7 @@ function getTime(){
     let now = new Date();
     let time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     time = time.split(":");
-    for(i=0;i<time.length;i++){
+    for(let i=0;i<time.length;i++){
       if (time[i].length == 1){
         time[i] = "0" + time[i];
       }
@@ -121,6 +160,7 @@ function tigerMenu(){
 
 dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("terminal"));
+dragElement(document.getElementById("media"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
