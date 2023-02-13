@@ -77,6 +77,7 @@ button:active {
   border-color: rgb(135,135,135);
   border-style: solid;
   border-radius: 8px;
+  z-index: 0;
 }
 
 .focused {
@@ -142,9 +143,7 @@ button:active {
   margin-bottom: auto;
   line-height: 0%;
   font-family: arial;
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgb(255, 255, 255);
+  border: none;
 }
 
 .classic-start-button img {
@@ -299,7 +298,7 @@ button:active {
 }
 
 #terminal {
-  display: none;
+  /*display: none;*/
 }
 
 .open {
@@ -311,4 +310,16 @@ button:active {
 #shutdownscreen {
   z-index: 9999;
   display: none;
+}
+
+.mpbutton {
+  width: 64px;
+  height: 64px;
+  background-color: rgb(125,125,125);
+  border-color: rgb(100,100,100);
+}
+
+.mpbutton img {
+  width: 50px;
+  height: 50px;
 }
