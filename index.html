@@ -39,7 +39,7 @@
   	  <div class="power-dialog">
   	    <p class="dialog-title">Shutdown</p>
   	    <p>Are you sure you wish to shutdown?</p>
-  	    <button onclick="shutdown();">Yes</button><button>No</button>
+  	    <button onclick="shutdown();">Yes</button><button onclick="document.getElementById('shutdown').style.display = 'none';">No</button>
   	  </div>
   	</div>
     <div id="workbar">
@@ -95,19 +95,46 @@
         <input id="command" placeholder="A:\Four Dots"><button onclick="sendCommand(document.getElementById('command'));">OK</button>
       </div>
     </div>
+    
+    <div id="media" class="window" onclick="setActive('media');">
+      <div class="topbar" id="media-topbar">
+        <div class="window-text">
+          <p id="media-text">Media Player</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('media').style.display = 'none';">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <p>Song: Four Dots OS Theme</p>
+        <p>Artist: kkCoder111</p>
+        <p>Album:</p>
+        <audio id="fdmp" src="title.m4a></audio>
+        <br>
+        <button class="mpbutton"><img src="icons/fdmp-previous.svg"></button>
+        <button class="mpbutton"><img src="icons/fdmp-play.svg" id="fdmp-glyph" onclick="playPause();"></button>
+        <button class="mpbutton"><img src="icons/fdmp-next.svg"></button>
+        <progress value="0" max="100" id="music-time"></progress>
+      </div>
+    </div>
 
 
     
-    <div id="start-classic">
+    <div id="start-classic" class="start">
       <div id="classic-buttons">
       <button class="classic-start-button" onclick=""><img src="icons/fourdots.svg"><p>About Four Dots</p></button>
       <button class="classic-start-button"><img src="icons/Start Apps.svg"><p>Programs</p></button>
       <button class="classic-start-button"><img src="icons/Settings.svg"><p>Settings</p></button>
       <button class="classic-start-button"><img src="icons/Exit.svg"><p>Log Off</p></button>
-      <button class="classic-start-button" onclick="document.getElementById('shutdown');"><img src="icons/Power.svg"><p>Shut Down</p></button>
+      <button class="classic-start-button" onclick="document.getElementById('shutdown').style.display = 'block';"><img src="icons/Power.svg"><p>Shut Down</p></button>
       <button class="classic-start-button"><img src="icons/Power.svg"><p>Restart</p></button>
+      </div>
     </div>
-    </div>
+    
+    <div id="start-twocolumn"></div>
     <script src="scripts.js"></script>
   </body>
 </html>
