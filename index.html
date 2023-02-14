@@ -43,7 +43,7 @@
   	  </div>
   	</div>
     <div id="workbar">
-      <div class="icon" onclick="tigerMenu();"><img src="icons/fourdots.svg"></div>
+      <div class="icon" onclick="menu();"><img src="icons/fourdots.svg"></div>
       <div class="icon"><img src="icons/Stella.svg"></div>
       <div class="icon"><img src="icons/tmp.svg"></div>
       <div class="icon" ondblclick="dclick('terminal');"><img src="icons/Shell.svg"></div>
@@ -113,11 +113,15 @@
         <p>Artist: kkCoder111</p>
         <p>Album:</p>
         <audio id="fdmp" src="title.m4a"></audio>
+        <img src="icons/fourdotscover.svg" width="230px">
+        <button class="mpbutton" onclick="mediaReplay();"><img src="icons/fdmp-previous.svg"></button>
+        <button class="mpbutton" onclick="playPause();"><img src="icons/fdmp-play.svg" id="fdmp-glyph"></button>
+        <button class="mpbutton" onclick ="mediaEnd();"><img src="icons/fdmp-next.svg"></button>
         <br>
-        <button class="mpbutton"><img src="icons/fdmp-previous.svg"></button>
-        <button class="mpbutton"><img src="icons/fdmp-play.svg" id="fdmp-glyph" onclick="playPause();"></button>
-        <button class="mpbutton"><img src="icons/fdmp-next.svg"></button>
+        <br>
         <progress value="0" max="100" id="music-time"></progress>
+        <p id="music-now">--:--</p>
+        <p id="music-duration">--:--</p>
       </div>
     </div>
 
