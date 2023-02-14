@@ -3,13 +3,14 @@
 <html>
   
   <head>
-  	<title>Codename Blueberry v0.1</title>
+  	<title>Four Dots OS pre-release</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="icons/Tiger.svg">
+    <link rel="icon" href="icons/fourdots.svg">
   </head>
   
   <body>
-    <img src="wallpaper/slipstream.svg" id="wallpaper">
+    <img src="wallpaper/slipstream.svg" id="wallpaper" onclick="removeActive();">
+    
   	<div id="login">
   		<p>KKCoder111</p>
   		<input id="password" type="password" placeholder="Password">
@@ -26,49 +27,63 @@
   	</div>
   	<div id="startup">
   		<img src="icons/fourdots.svg" width="300px">
-  		<p>Welcome to Codename Blueberry!</p>
+  		<p>Welcome to Four Dots OS!</p>
   		<button onclick="startup();">Begin</button>
   	</div>
+  	
+  	<div id="shutdownscreen" class="blacky">
+  	  <p>Four Dots OS has successfully shut down.</p>
+  	</div>
+  	
+  	<div id="shutdown" class="fullscreen">
+  	  <div class="power-dialog">
+  	    <p class="dialog-title">Shutdown</p>
+  	    <p>Are you sure you wish to shutdown?</p>
+  	    <button onclick="shutdown();">Yes</button><button onclick="document.getElementById('shutdown').style.display = 'none';">No</button>
+  	  </div>
+  	</div>
     <div id="workbar">
-      <div class="icon" onclick="tigerMenu();"><img src="icons/fourdots.svg"></div>
+      <div class="icon" onclick="menu();"><img src="icons/fourdots.svg"></div>
       <div class="icon"><img src="icons/Stella.svg"></div>
       <div class="icon"><img src="icons/tmp.svg"></div>
-      <div class="icon"><img src="icons/Shell.svg"></div>
-      <div id="time" class="right" onload="getDate(this);">6:45:00 PM</div>
-      <div id="w-time"><p id="time"></p></div>
+      <div class="icon" ondblclick="dclick('terminal');"><img src="icons/Shell.svg"></div>
+      <div id="time" onclick="getTime();"></div>
     </div>
     
     
 
     <div id="welcome" class="window" onclick="setActive('welcome');">
       <div class="topbar" id="welcome-topbar">
-        <div class="topbar_buttons">
-          <!--<button class="window-button">-</button>-->
-          <button class="window-button" onclick="document.getElementById('welcome').style.display = 'none';">x</button>
-        </div>
+        
         <div class="window-text">
           <p>Welcome</p>
         </div>
         
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('welcome').style.display = 'none';">X</button>
+        </div>
+        
       </div>
       <div class="content">
-        <h1>Welcome to Blueberry.</h1>
-        <p>The enhanced version of Tiger 1 has new features to enhance your desktop. <br><br> Version 1.5 (xx/xx/2023)</p>
+        <h1>Welcome to Four Dots OS!.</h1>
+        <p>The enhanced version of null has new features to enhance your desktop. <br><br></p>
         <h2>Highlights in this release:</h2>
         <p>Not available yet</p>
         <h2>Did you know?</h2>
-        <p>Very astonishing fact</p>
+        <p id="fact" onclick="getFact(document.getElementById('fact'));">Very astonishing fact</p>
       </div>
     </div>
-
-    <div id="terminal" class="window chrome" onclick="setActive('terminal');">
-      <div class="topbar window-chrome" id="terminal-topbar">
-        <div class="topbar_buttons">
-          <button class="window-button mini">-</button>
-          <button class="window-button close" onclick="document.getElementById('terminal').style.display = 'none';">X</button>
-        </div>
+    <div id="terminal" class="window" onclick="setActive('terminal');">
+      <div class="topbar" id="terminal-topbar">
         <div class="window-text">
           <p id="terminal-text">Terminal</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('terminal').style.display = 'none';">X</button>
         </div>
         
       </div>
@@ -79,20 +94,50 @@
         <input id="command" placeholder="A:\Four Dots" type="command"><button onclick="sendCommand(document.getElementById('command'));">OK</button>
       </div>
     </div>
+    
+    <div id="media" class="window" onclick="setActive('media');">
+      <div class="topbar" id="media-topbar">
+        <div class="window-text">
+          <p id="media-text">Media Player</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('media').style.display = 'none';">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <p>Song: Four Dots OS Theme</p>
+        <p>Artist: kkCoder111</p>
+        <p>Album:</p>
+        <audio id="fdmp" src="title.m4a"></audio>
+        <img src="icons/fourdotscover.svg" width="230px">
+        <button class="mpbutton" onclick="mediaReplay();"><img src="icons/fdmp-previous.svg"></button>
+        <button class="mpbutton" onclick="playPause();"><img src="icons/fdmp-play.svg" id="fdmp-glyph"></button>
+        <button class="mpbutton" onclick ="mediaEnd();"><img src="icons/fdmp-next.svg"></button>
+        <br>
+        <br>
+        <progress value="0" max="100" id="music-time"></progress>
+        <p id="music-now">--:--</p>
+        <p id="music-duration">--:--</p>
+      </div>
+    </div>
 
 
     
-    <div id="start-classic">
+    <div id="start-classic" class="start">
       <div id="classic-buttons">
-        <span question="when will functions be made for this"></span>
-      <button class="start-button" onclick=""><img src="icons/Tiger.svg"><p>About Tiger</p></button>
-      <button class="start-button" onclick=""><img src="icons/Start Apps.svg"><p>Programs</p></button>
-      <button class="start-button" onclick=""><img src="icons/Settings.svg"><p>Settings</p></button>
-      <button class="start-button" onclick=""><img src="icons/Exit.svg"><p>Log Off</p></button>
-      <button class="start-button" onclick=""><img src="icons/Power.svg"><p>Shut Down</p></button>
-      <button class="start-button" onclick=""><img src="icons/Power.svg"><p>Restart</p></button>
+      <button class="classic-start-button" onclick=""><img src="icons/fourdots.svg"><p>About Four Dots</p></button>
+      <button class="classic-start-button"><img src="icons/Start Apps.svg"><p>Programs</p></button>
+      <button class="classic-start-button"><img src="icons/Settings.svg"><p>Settings</p></button>
+      <button class="classic-start-button"><img src="icons/Exit.svg"><p>Log Off</p></button>
+      <button class="classic-start-button" onclick="document.getElementById('shutdown').style.display = 'block';"><img src="icons/Power.svg"><p>Shut Down</p></button>
+      <button class="classic-start-button"><img src="icons/Power.svg"><p>Restart</p></button>
+      </div>
     </div>
-    </div>
+    
+    <div id="start-twocolumn"></div>
     <script src="scripts.js"></script>
   </body>
 </html>
