@@ -107,18 +107,7 @@ function sendCommand(command) {
 	out.innerHTML += give;
 
 	if (toGo[0] == "HELP") {
-		out.innerHTML +="<br>";
-		out.innerHTML += "help - Displays this help session<br>";
-		out.innerHTML += "cd - Changes working directory<br>";
-		out.innerHTML += "open - Opens a file<br>";
-		out.innerHTML += "root - Goes to the root of the drive<br>";
-		out.innerHTML += "shutdown - Logs off, shuts down, or restarts current user. Try it for more info<br>";
-		out.innerHTML += "name - Sets the name of this session<br>";
-		out.innerHTML += "devmode - Enables developer mode<br>";
-		out.innerHTML += "mdir - Makes a directory<br>";
-		out.innerHTML += "rdir - Deletes a directory<br>";
-		out.innerHTML += "delete - Deletes a file<br>";
-		out.innerHTML += "say - Outputs text<br>";
+		out.innerHTML +="<div class=content><br>help - Displays this help session<br>cd - Changes working directory<br>open - Opens a file<br>root - Goes to the root of the drive<br>shutdown - Logs off, shuts down, or restarts current user. Try it for more info<br>name - Sets the name of this session<br>devmode - Enables developer mode<br>mdir - Makes a directory<br>rm - Deletes a directory or file<br>say - Outputs text<br></div>";
 	}
 
 	else if (toGo[0] == "NAME") {
