@@ -1,6 +1,11 @@
 "use strict";
 
 var workingDir = "A:\\Four Dots";
+var user;
+
+function registerUser(ruser){
+  user = ruser;
+}
 
 var defaultdirs = [
     "A:\\",
@@ -13,16 +18,29 @@ var title = "Four Dots OS pre-release";
 var interval = window.setInterval(function(){
   getTime();
   getDuration();
-}, 1000)
+}, 100)
   
 function dclick(name){
   openApp(name);
+}
+
+function toMinutesAndSeconds(int){
+  let date = new Date(null);
+  date.setSeconds(int);
+  
+  let now = date.toISOString().slice(14,19);
+  
+  return now;
 }
 
 function getDuration(){
   let elmnt = document.getElementById("music-time");
   let audio = document.getElementById("fdmp");
   let duration = (audio.currentTime/audio.duration) * 100;
+  
+  document.getElementById("music-now").innerHTML = toMinutesAndSeconds(audio.currentTime);
+  document.getElementById("music-duration").innerHTML = toMinutesAndSeconds(audio.duration);
+  
   elmnt.value = duration.toString();
 }
 
@@ -36,11 +54,26 @@ function playPause(){
     icon.src = "icons/fdmp-pause.svg";
   }
   
+  else if (audio.currentTime == audio.duration) {
+    icon.src = "icons/fdmp-play.svg";
+  }
+  
   else {
     audio.pause()
     icon.src = "icons/fdmp-play.svg";
   }
   console.log(audio.paused);
+}
+
+function mediaReplay(){
+  let audio = document.getElementById("fdmp");
+  audio.currentTime = 0;
+}
+
+function mediaEnd(){
+  let audio = document.getElementById("fdmp");
+  audio.currentTime = audio.duration;
+  playPause();
 }
 
 function getFact(p){
@@ -145,15 +178,15 @@ function startup(){
 	document.getElementById("startup").style.display = "none";
 }
 
-function tigerMenu(){
-	let menu = document.getElementById("start-classic");
+function menu(){
+	let menu1 = document.getElementById("start-classic");
 
-	if (menu.style.display == "none") {
-		menu.style.display = "flex";
+	if (menu1.style.display == "none") {
+		menu1.style.display = "flex";
 	}
 
 	else {
-		menu.style.display = "none";
+		menu1.style.display = "none";
 	}
 }
 
