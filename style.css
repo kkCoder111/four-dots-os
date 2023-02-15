@@ -4,6 +4,9 @@ body {
   color: rgb(255,255,255);
   overflow: hidden;
 }
+ul{
+  list-style-type:none;
+}
 
 #wallpaper {
   position: fixed;
