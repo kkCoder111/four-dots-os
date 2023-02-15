@@ -2,4 +2,6 @@
 This is a Web OS simulator that is currently in development. <br>
 =======
 Features did break (that's for sure).<br>
-VISIT HERE --> <a href="https://kkcoder111.github.io/four-dots-os/">https://kkcoder111.github.io/four-dots-os/</a>
+Check it out here: <a href="https://kkcoder111.github.io/four-dots-os/">https://kkcoder111.github.io/four-dots-os/</a>
+
+Go to the wiki to check out some features which might be coming soon! :-)
