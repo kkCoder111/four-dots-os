@@ -50,7 +50,27 @@
       <div id="time" onclick="getTime();"></div>
     </div>
     
-    
+    <div id="testwindow" class="window" onclick="setActive('testwindow');">
+      <div class="topbar" id="test-topbar">
+       <div class="window-text">
+        <p>testdialouge</p>
+       </div> 
+       <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('testwindow').style.display = 'none';">X</button>
+        </div>
+      </div>
+      <div class="menubar">
+        <ul class="menubar-ul">
+         <li class="menubar-li"><button class="menu-button" id="file" onclick="">file</button></li>
+         <li class="menubar-li"><button class="menu-button" id="edit" onclick="">edit</button></li>
+         <li class="menubar-li"><button class="menu-button" id="view" onclick="">view</button></li>
+        </ul>
+      </div>
+      <div class="content">
+      </div>
+    </div>
 
     <div id="welcome" class="window" onclick="setActive('welcome');">
       <div class="topbar" id="welcome-topbar">
@@ -85,7 +105,6 @@
           <button class="window-button">□</button>
           <button class="window-button close-button" onclick="document.getElementById('terminal').style.display = 'none';">X</button>
         </div>
-        
       </div>
       <div class="content">
         <div id="console">
