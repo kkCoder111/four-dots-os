@@ -3,7 +3,7 @@
 <html>
   
   <head>
-  	<title>Four Dots OS pre-release</title>
+  	<title>Four Dots OS pre-milestone 1</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icons/fourdots.svg">
   </head>
@@ -12,7 +12,8 @@
     <img src="wallpaper/slipstream.svg" id="wallpaper" onclick="removeActive();">
     
   	<div id="login">
-  		<p>KKCoder111</p>
+  	  <img src="icons/user.svg">
+  		<p>user</p>
   		<input id="password" type="password" placeholder="Password">
   		<button onclick="document.getElementById('login').style.display = 'none';">Go</button>
   		<button onclick="
@@ -75,6 +76,7 @@
         <p id="fact" onclick="getFact(document.getElementById('fact'));">Very astonishing fact</p>
       </div>
     </div>
+
     <div id="terminal" class="window" onclick="setActive('terminal');">
       <div class="topbar" id="terminal-topbar">
         <div class="window-text">
@@ -85,13 +87,27 @@
           <button class="window-button">□</button>
           <button class="window-button close-button" onclick="document.getElementById('terminal').style.display = 'none';">X</button>
         </div>
-        
       </div>
+      
+      <!--<div class="menubar">
+        <button>-</button>
+        <p>Text size</p>
+        <p>+</p>
+      </div>-->
+      
+      <!--<div class="menubar">
+        <button class="menu-1">File</button>
+        <div id="options-1 options">
+          <button>Exit Terminal</button>
+        </div>
+      </div>
+      -->
+      
       <div class="content">
         <div id="console">
-        	<p id="output">Welcome to KKCoder111 Terminal<br>Type 'help' for help.</p>
+        	<p id="output">Welcome to the Four Dots OS Terminal<br>Type 'help' for help.</p>
         </div>
-        <input id="command" placeholder="A:\Four Dots" type="command"><button onclick="sendCommand(document.getElementById('command'));">OK</button>
+        <input id="command" placeholder="A:\Four Dots"><button onclick="sendCommand(document.getElementById('command'));">OK</button>
       </div>
     </div>
     
@@ -102,7 +118,7 @@
         </div>
         <div class="topbar_buttons">
           <button class="window-button">-</button>
-          <button class="window-button">□</button>
+          <button class="window-button" disabled>□</button>
           <button class="window-button close-button" onclick="document.getElementById('media').style.display = 'none';">X</button>
         </div>
         
@@ -138,6 +154,14 @@
     </div>
     
     <div id="start-twocolumn"></div>
+    
+    <template class="notification" id="notification">
+      <h2>Notification Renderer</h2>
+      <h3>Test Notification</h3>
+      <p>This is just a test notification.</p>
+      <button onclick="this.parentElement.style.display = 'none';">Dismiss</button>
+      <button>Take Action</button>
+    </template>
     <script src="scripts.js"></script>
   </body>
 </html>
