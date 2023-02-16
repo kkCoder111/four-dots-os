@@ -175,8 +175,8 @@ function sendCommand(command) {
 	out.innerHTML += give;
 
 	if (toGo[0] == "HELP") {
-		out.innerHTML +="<div class='help-txt'><br>help - Displays this help session<br>cd - Changes working directory<br>open - Opens a file<br>root - Goes to the root of the drive<br>shutdown - Logs off, shuts down, or restarts current user. Try it for more info<br>name - Sets the name of this session<br>devmode - Enables developer mode<br>mdir - Makes a directory<br>rm - Deletes a directory or file<br>say - Outputs text<br></div>";
-		out.innerHTML += "<span style='display=none'>secret hidden message</span>";
+		out.innerHTML +="<div class=help-txt><br>help - Displays this help session<br>cd - Changes working directory<br>open - Opens a file<br>root - Goes to the root of the drive<br>shutdown - Logs off, shuts down, or restarts current user. Try it for more info<br>name - Sets the name of this session<br>devmode - Enables developer mode<br>mdir - Makes a directory<br>rm - Deletes a directory or file<br>say - Outputs text<br></div>";
+		out.innerHTML += "<span display=none>secret hidden message</span>";
 	}
 
 	else if (toGo[0] == "NAME") {
