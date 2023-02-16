@@ -1,5 +1,22 @@
 "use strict";
 
+var olderror = console.error;
+
+console.error = function(message) {
+  document.getElementById("rsod").style.display = "block";
+  
+  let errorname = document.getElementById("rsod-error");
+  if (typeof message == "object") {
+    errorname.innerHTML = (JSON && JSON.stringify ? JSON.stringify(message) : message);
+  }
+  
+  else {
+    errorname.innerHTML = message;
+  }
+}
+
+//console.error("Hello world");
+
 var workingDir = "A:\\Four Dots";
 var user;
 
@@ -22,6 +39,21 @@ var interval = window.setInterval(function(){
   
 function dclick(name){
   openApp(name);
+}
+
+function notify(title, message){
+  let template = document.getElementById("notification");
+  
+  let toast = document.createElement("div");
+  
+  toast.id = "";
+  toast.style.display = "block";
+  
+  toast.append(template.content.cloneNode(true));
+  document.body.append(toast);
+  
+  toast.childNodes[0].innerHTML = title;
+  toast.childNodes[1].innerHTML = message;
 }
 
 function toMinutesAndSeconds(int){
