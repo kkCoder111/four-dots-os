@@ -4,9 +4,6 @@ body {
   color: rgb(255,255,255);
   overflow: hidden;
 }
-ul{
-  list-style-type:none;
-}
 
 #wallpaper {
   position: fixed;
@@ -81,7 +78,6 @@ button:active {
   border-style: solid;
   border-radius: 8px;
   z-index: 0;
-  box-shadow: 4px 4px 5px #111d
 }
 
 .focused {
@@ -208,6 +204,7 @@ button:active {
 }
 
 #login {
+  padding: 10px;
   position: fixed;
   z-index: 9999;
   width: 100vw;
@@ -349,6 +346,7 @@ button:active {
 
 progress[value]::-webkit-progress-bar {
   border-radius: 5px;
+  background-color: rgb(128, 128, 128);
 }
 
 progress[value] {
@@ -370,4 +368,46 @@ progress[value]::-webkit-progress-value {
 #music-duration {
   float: right;
   display: inline-block;
+}
+
+#notification {
+  display: none;
+}
+
+.notification {
+  background-color: rgb(0,0,0);
+  z-index: 9989;
+  min-width: 300px;
+  max-width: 50vw;
+  position: fixed;
+  bottom: 6vh;
+  right: 0.5vw;
+  padding: 10px;
+}
+
+.notification button {
+  position: relative;
+  display: inline-block;
+}
+
+button[disabled] {
+  color: rgb(128,128,128);
+}
+
+.options {
+  /*display: none;*/
+  position: relative;
+}
+
+#user-picture {
+  width: 85px;
+  height: 85px;
+  border-radius: 8px;
+  color: rgb(255,255,255);
+  background-color: rgb(0,0,80);
+  font-size: 60px;
+}
+
+ul {
+  list-style-type: none;
 }
