@@ -52,15 +52,18 @@ function playPause(){
   if (audio.paused) {
     audio.play()
     icon.src = "icons/fdmp-pause.svg";
+    //document.title = "Playing A:\\Four Dots\\system\\resources\\title.m4a";
   }
   
   else if (audio.currentTime == audio.duration) {
     icon.src = "icons/fdmp-play.svg";
+    //document.title = title;
   }
   
   else {
     audio.pause()
     icon.src = "icons/fdmp-play.svg";
+    //document.title = title;
   }
   console.log(audio.paused);
 }
@@ -140,22 +143,34 @@ function sendCommand(command) {
 	out.innerHTML += give;
 
 	if (toGo[0] == "HELP") {
-		out.innerHTML +="<div class=content><br>help - Displays this help session<br>cd - Changes working directory<br>open - Opens a file<br>root - Goes to the root of the drive<br>shutdown - Logs off, shuts down, or restarts current user. Try it for more info<br>name - Sets the name of this session<br>devmode - Enables developer mode<br>mdir - Makes a directory<br>rm - Deletes a directory or file<br>say - Outputs text<br></div>";
+		out.innerHTML +="<br>";
+		out.innerHTML += "help - Displays this help session<br>";
+		out.innerHTML += "cd - Changes working directory<br>";
+		out.innerHTML += "open - Opens a file<br>";
+		out.innerHTML += "root - Goes to the root of the drive<br>";
+		out.innerHTML += "shutdown - Logs off, shuts down, or restarts current user. Try it for more info<br>";
+		out.innerHTML += "name - Sets the name of this session<br>";
+		out.innerHTML += "devmode - Enables developer mode<br>";
+		out.innerHTML += "mdir - Makes a directory<br>";
+		out.innerHTML += "rdir - Deletes a directory<br>";
+		out.innerHTML += "delete - Deletes a file<br>";
+		out.innerHTML += "say - Outputs text<br>";
 	}
 
 	else if (toGo[0] == "NAME") {
 		toGo.splice(0, 1);
-		
-		for (i=0; i<toGo.length; i++){
 
-		document.getElementById("terminal-text").innerHTML = toGo.toString().replace(",", " ");
-		}
+		document.getElementById("terminal-text").innerHTML = toGo.join(" ");
 	}
 	
 	else if (toGo[0] == "SAY") {
 	  toGo.splice(0,1);
 	  
-	  out.innerHTML += "<br>" + toGo + "<br>";
+	  out.innerHTML += "<br>" + toGo.join(" ") + "<br>";
+	}
+	
+	else {
+	  out.innerHTML += "<br>" + "The command entered is invalid or not available yet.";
 	}
 
 	command.placeholder = workingDir;
