@@ -42,23 +42,23 @@ function terminalStorage(toGo){
 	    spitOut("Currently stored text:");
 	    spitOut(localStorage.terminal);
 	    spitOut("HINT - To store something within the terminal, type 'STORE' followed by the text you want to store at the command line.");
-	  }
+	}
 	  
-	  else {
-	    toGo.splice(0,1);
-	    terminalKey(toGo.join(" "));
-	    spitOut("Stored the following in Terminal storage:");
-	    spitOut(localStorage.terminal);
-	  }
+  else {
+	  toGo.splice(0,1);
+	  terminalKey(toGo.join(" "));
+	  spitOut("Stored the following in Terminal storage:");
+	  spitOut(localStorage.terminal);
+  }
 }
 
 function terminalKey(text) {
-  if(localStorage.terminal){
-    localStorage.terminal = text;
+  if(localStorage.getItem("terminal") !== null){
+    localStorage.setItem("terminal", text);
   }
   
   else {
-    localStorage.terminal = "Nothing stored";
+    localStorage.setItem("terminal", "Nothing is stored yet.");
   }
 }
 
