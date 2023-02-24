@@ -362,21 +362,21 @@ function setActive(toSet){
   let windows = document.getElementsByClassName("window");
   for (let i = 0; i < topbars.length; i++) {
     topbars[i].style.background = "rgb(0,0,0)";
-    windows[i].zIndex = "0";
+    windows[i].style.zIndex = "0";
   }
   
   let toChange = document.getElementById(toSet + "-topbar");
   
   toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";
-  toSet.style.zIndex = "1000";
-  document.title = toSet.style.zIndex;
+  document.getElementById(toSet).style.zIndex = "1000";
+  document.title = document.getElementById(toSet).style.zIndex;
 }
 
 function removeActive(){
   let topbars = document.getElementsByClassName("topbar");
   for (let i = 0; i < topbars.length; i++) {
     topbars[i].style.background = "rgb(0,0,0)";
-    topbars[i].zIndex = "0";
+    topbars[i].style.zIndex = "0";
   }
 }
 
