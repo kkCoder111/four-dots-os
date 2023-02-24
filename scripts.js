@@ -383,5 +383,4 @@ function removeActive(){
 function increaseZIndex(toSet){
   let toChange = document.getElementById(toSet + "-topbar");
   toSet.style.zIndex = toSet.style.zIndex;
-  document.title = toSet.style.zIndex;
 }
