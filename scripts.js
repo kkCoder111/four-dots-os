@@ -2,16 +2,17 @@
 
 var filesystem = {
   "A:\\" : {
-    "System.dir" : {
-      "System.data" : "SYSTEM-DATA"
+    "SYSTEM.dir" : {
+      "System.data" : "SYSTEM-DATA",
+      "folder-display" : "System",
     },
     
-    "MyFiles.dir" : {
-      
+    "MYFILES.dir" : {
+      "folder-display" : "MyFiles",
     },
     
-    "Users.dir" : {
-      
+    "USERS.dir" : {
+      "folder-display" : "Users",
     },
   }
 };
@@ -38,11 +39,12 @@ console.error = function(message) {
 };
 
 function terminalStorage(toGo){
-  if (toGo.length() == 1) {
+  if (toGo.length == 0) {
 	    spitOut("Currently stored text:");
 	    spitOut(localStorage.terminal);
 	    spitOut("HINT - To store something within the terminal, type 'STORE' followed by the text you want to store at the command line.");
-	}
+	    spitOut("HINT - To clear storage, type 'STORE' followed by '--clear'")
+  }
 	  
   else {
 	  toGo.splice(0,1);
@@ -269,6 +271,22 @@ function sendCommand(command) {
 	else if (toGo[0] == "STORE") {
 	  terminalStorage(toGo);
 	}
+
+  else if (toGo[0] == "CD") {
+    toGo.splice(0,1);
+
+    let dirname = toGo.join(" ");
+    dirname = dirname.toUpperCase() + ".dir";
+
+    if (dirname in filesystem["A:\\"]) {
+      let toAppend = filesystem["A:\\"];
+      toAppend = toAppend[dirname];
+      toAppend = toAppend["folder-display"];
+      let newdir = "A:\\" + toAppend;
+      spitOut("Resolved to " + newdir);
+      workingDir = newdir;
+    }
+  }
 	
 	else {
 	  spitOut("<br>" + "The command entered is invalid or not available yet.");
@@ -369,7 +387,6 @@ function setActive(toSet){
   
   toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";
   document.getElementById(toSet).style.zIndex = "1000";
-  document.title = document.getElementById(toSet).style.zIndex;
 }
 
 function removeActive(){
