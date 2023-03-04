@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+  
+  <head>
+  	<title>Four Dots OS milestone 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/fourdots.svg">
+  </head>
+  
+  <body>
+    <img src="wallpaper/slipstream.svg" id="wallpaper" onclick="removeActive();">
+    
+    <div id="rsod">
+      <h1>JavaScript has thrown an error.</h1>
+      <p id="rsod-error">DefaultError</p>
+      <p>This error must be debugged. If present in a release, please file a bug report.</p>
+    </div>
+    
+  	<div id="login">
+  	  <img src="icons/user.svg">
+  		<p>user</p>
+  		<input id="password" type="password" placeholder="Password">
+  		<button onclick="document.getElementById('login').style.display = 'none';
+  		notify('Hello world!', 'You have logged on!');">Go</button>
+  		<button onclick="
+  		if(document.getElementById('password').type == 'password') {
+  			document.getElementById('password').type = 'text';
+  		}
+  		else {
+  			document.getElementById('password').type = 'password';
+  		}
+  		">Show/Hide</button>
+  		<div id="message-bottom"></div>
+  	</div>
+  	<div id="startup">
+  		<img src="icons/fourdots.svg" width="300px">
+  		<p>Welcome to Four Dots OS!</p>
+  		<button onclick="startup();">Begin</button>
+  	</div>
+  	
+  	<div id="shutdownscreen" class="blacky">
+  	  <p>Four Dots OS has successfully shut down.</p>
+  	</div>
+  	
+  	<div id="shutdown" class="fullscreen">
+  	  <div class="power-dialog">
+  	    <p class="dialog-title">Shutdown</p>
+  	    <p>Are you sure you wish to shutdown?</p>
+  	    <button onclick="shutdown();">Yes</button><button onclick="document.getElementById('shutdown').style.display = 'none';">No</button>
+  	  </div>
+  	</div>
+    <div id="workbar">
+      <div class="icon" onclick="menu();"><img src="icons/fourdots.svg"></div>
+      <div class="icon"><img src="icons/Stella.svg"></div>
+      <div class="icon"><img src="icons/tmp.svg"></div>
+      <div class="icon" ondblclick="dclick('terminal');"><img src="icons/Shell.svg"></div>
+      <div id="time" onclick="getTime();"></div>
+    </div>
+    
+    
+
+    <div id="welcome" class="window" onclick="setActive('welcome');">
+      <div class="topbar" id="welcome-topbar">
+        
+        <div class="window-text">
+          <p>Welcome</p>
+        </div>
+        
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('welcome').style.display = 'none';">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <h1>Welcome to Four Dots OS!.</h1>
+        <p>The enhanced version of null has new features to enhance your desktop. <br><br></p>
+        <h2>Highlights in this release:</h2>
+        <p>Not available yet</p>
+        <h2>Did you know?</h2>
+        <p id="fact" onclick="getFact(document.getElementById('fact'));">Very astonishing fact</p>
+      </div>
+    </div>
+
+    <div id="terminal" class="window" onclick="setActive('terminal');">
+      <div class="topbar" id="terminal-topbar">
+        <div class="window-text">
+          <p id="terminal-text">Terminal</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="document.getElementById('terminal').style.display = 'none';">X</button>
+        </div>
+      </div>
+      
+      <!--<div class="menubar">
+        <button>-</button>
+        <p>Text size</p>
+        <p>+</p>
+      </div>-->
+      
+      <!--<div class="menubar">
+        <button class="menu-1">File</button>
+        <div id="options-1 options">
+          <button>Exit Terminal</button>
+        </div>
+      </div>
+      -->
+      
+      <div class="content">
+        <div id="console">
+        	<p id="output">Welcome to the Four Dots OS Terminal<br>Type 'help' for help.</p>
+        </div>
+        <input id="command" placeholder="A:\Four Dots"><button onclick="sendCommand(document.getElementById('command'));">OK</button>
+      </div>
+    </div>
+    
+    <div id="media" class="window" onclick="setActive('media');">
+      <div class="topbar" id="media-topbar">
+        <div class="window-text">
+          <p id="media-text">Media Player</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button" disabled>□</button>
+          <button class="window-button close-button" onclick="document.getElementById('media').style.display = 'none';">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <p>Song: Four Dots OS Theme</p>
+        <p>Artist: kkCoder111</p>
+        <p>Album:</p>
+        <audio id="fdmp" src="title.m4a"></audio>
+        <img src="icons/fourdotscover.svg" width="230px">
+        <button class="mpbutton" onclick="mediaReplay();"><img src="icons/fdmp-previous.svg"></button>
+        <button class="mpbutton" onclick="playPause();"><img src="icons/fdmp-play.svg" id="fdmp-glyph"></button>
+        <button class="mpbutton" onclick ="mediaEnd();"><img src="icons/fdmp-next.svg"></button>
+        <br>
+        <br>
+        <progress value="0" max="100" id="music-time"></progress>
+        <p id="music-now">--:--</p>
+        <p id="music-duration">--:--</p>
+      </div>
+    </div>
+    
+    <div id="settings" class="window" onclick="setActive('settings');">
+      <div class="topbar" id="settings-topbar">
+        <div class="window-text">
+          <p id="settings-text">Settings</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button" disabled>□</button>
+          <button class="window-button close-button" onclick="document.getElementById('settings').style.display = 'none';">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <p>Theme</p>
+        <select name="theme" id="theme">
+          <option value="studio">Studio</option>
+          <option value="plex">Plex</option>
+        </select>
+        <button>Apply</button>
+      </div>
+    </div>
+
+
+    
+    <div id="start-classic" class="start">
+      <div id="classic-buttons">
+      <button class="classic-start-button" onclick=""><img src="icons/fourdots.svg"><p>About Four Dots</p></button>
+      <button class="classic-start-button"><img src="icons/Start Apps.svg"><p>Programs</p></button>
+      <button class="classic-start-button"><img src="icons/Settings.svg"><p>Settings</p></button>
+      <button class="classic-start-button"><img src="icons/Exit.svg"><p>Log Off</p></button>
+      <button class="classic-start-button" onclick="document.getElementById('shutdown').style.display = 'block';"><img src="icons/Power.svg"><p>Shut Down</p></button>
+      <button class="classic-start-button" onclick="location.reload();"><img src="icons/Power.svg"><p>Restart</p></button>
+      </div>
+    </div>
+    
+    <div id="start-twocolumn"></div>
+    
+    <template class="notification" id="notification">
+      <h2>Notification Renderer</h2>
+      <h3>Test Notification</h3>
+      <p>This is just a test notification.</p>
+      <button onclick="this.parentElement.style.display = 'none';">Dismiss</button>
+      <button>Take Action</button>
+    </template>
+    <script src="scripts.js"></script>
+  </body>
+</html>
