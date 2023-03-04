@@ -1,0 +1,440 @@
+@font-face{
+  font-family: DOS;
+  src: url("dosfont/ModernDOS8x16.ttf");
+}
+
+body {
+  background-color: rgb(0,0,100);
+  font-family: arial;
+  color: rgb(255,255,255);
+  overflow: hidden;
+}
+
+#wallpaper {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  margin: 0px;
+  width: 100vw;
+  /*height: 100vh;*/
+}
+
+button {
+  font-family: arial;
+  font-size: 20px;
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: rgb(255,255,255);
+  border-style: solid;
+  background-color: rgb(50,50,50);
+  color: rgb(255,255,255);
+  height: 30px;
+}
+
+input {
+  height: 30px;
+  background-color: rgb(50,50,50);
+  border-style: solid;
+  border-color: rgb(100,100,100);
+  font-family: arial;
+  font-size: 20px;
+  color: rgb(255,255,255);
+}
+
+button:hover {
+  background-color: rgb(100,100,100);
+}
+
+button:active {
+  background-color: rgb(150,150,150);
+}
+
+.window-button {
+  color: rgb(255,255,255);
+  background-color: rgb(0,0,0);
+  border: none;
+  font-weight: bold;
+}
+
+.window-button:hover {
+  background-color: rgb(55,55,55);
+}
+
+#workbar {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 5vh;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(50,50,50, 0.5);
+  z-index: 9990;
+}
+
+.window {
+  position: absolute;
+  /*margin: auto;*/
+  width: 50vw;
+  height: 50vh;
+  top: 0%;
+  background-color: rgb(0,0,0);
+  border-width: 4px;
+  border-color: rgb(135,135,135);
+  border-style: solid;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.focused {
+  z-index: 1000;
+}
+
+.topbar {
+  display: flex;
+  width: 100%;
+  height: 40px;
+}
+
+.window-text {
+  margin-left: 10px;
+  line-height: 50%;
+  flex-grow: 1;
+}
+
+.topbar_buttons {
+  width: 130px;
+  margin-left: 10px;
+  margin-top: 5px;
+  float: right;
+}
+
+.topbar_buttons button {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0,0,0,0);
+}
+
+.topbar_buttons img {
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  margin: 10px;
+}
+
+.icon img {
+  width: 5vh;
+}
+
+.icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 5vh;
+}
+
+.icon:hover, #time:hover {
+  background-color: rgba(55,55,55, 0.5);
+}
+
+.classic-start-button {
+  display: flex;
+  height: 40px;
+  width: 200px;
+  background-color: rgba(10,10,10, 0);
+  color:rgb(255,255,255);
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0%;
+  font-family: arial;
+  border: none;
+}
+
+.classic-start-button img {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 10px;
+  width: 25px;
+}
+
+.classic-start-button p {
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.classic-start-button:hover {
+  background-color: rgba(50,50,50, 0.5);
+}
+
+.classic-start-button:active {
+  background-color: rgba(100,100,100, 0.5);
+}
+
+#classic-user-name {
+  height: 50px;
+  width: 220px;
+}
+
+#start-classic {
+  position: fixed;
+  bottom: 5vh;
+  left: 0;
+  width: 200px;
+  height: 240px;
+  background-color: rgb(0,0,80);
+  display: none;
+}
+
+#classic-buttons {
+  display: block;
+  width: 220px;
+  height: 9vh;
+}
+
+#classic-banner {
+  height: 48vh;
+  width: 30px;
+  background-color: rgb(0,0,80);
+  bottom: 5vh;
+  transform: rotate(270deg);
+}
+
+#time {
+  margin-left: auto;
+  font-size: 3vh;
+  line-height: 150%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#login {
+  padding: 10px;
+  position: fixed;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0,0,0);
+  margin: auto;
+  left: 0%;
+  top: 0%;
+  font-size: 30px;
+  text-align: center;
+}
+
+.blacky {
+  margin: auto;
+  left: 0%;
+  top: 0%;
+  font-size: 30px;
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0,0,0);
+}
+
+#startup {
+  position: fixed;
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh;
+  left: 0%;
+  top: 0%;
+  margin: auto;
+  font-size: 30px;
+  text-align: center;
+  background-color: rgb(0,0,0);
+}
+
+#welcome {
+  width: 500px;
+  height: 500px;
+}
+
+.right {
+  float: right;
+}
+
+#console {
+  font-family: monospace;
+  font-size: 20px;
+  color: rgb(40,185,0);
+  overflow-y: auto;
+  height: 12em;
+}
+
+.close-button {
+  width: 60px !important;
+  background-color: rgb(0,0,0);
+}
+
+.close-button:hover {
+  background-color: rgb(85,0,0);
+}
+
+.fullscreen {
+  display: none;
+  z-index: 9998;
+  background-color: rgba(50,50,50, 0.5);
+  margin: 0px;
+  position: fixed;
+  top : 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+.power-dialog {
+  padding: 50px;
+  position: fixed;
+  width: 500px;
+  height: 200px;
+  background-color: rgb(0,0,0);
+  top: 35%;
+  left: 30%;
+}
+
+.dialog-title {
+  text-align: center;
+  background-color: rgb(0, 0, 80);
+  height: 30px;
+  line-height: 200%;
+}
+
+.power-dialog button {
+  width: 100px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#terminal {
+  /*display: none;*/
+}
+
+.open {
+  width: 25px;
+  height: 5px;
+  background-color: rgb(0,0,85);
+}
+
+#shutdownscreen {
+  z-index: 9999;
+  display: none;
+}
+
+.mpbutton {
+  width: 74px;
+  height: 74px;
+  background-color: rgb(125,125,125);
+  border-color: rgb(100,100,100);
+}
+
+.mpbutton img {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#media {
+  width: 250px;
+  height: 550px;
+}
+
+#music-time {
+  width: 230px;
+  height: 20px;
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 5px;
+  background-color: rgb(128, 128, 128);
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: rgb(0,0,80);
+  border-radius: 5px;
+}
+
+#music-now {
+  float: left;
+  display: inline-block;
+}
+
+#music-duration {
+  float: right;
+  display: inline-block;
+}
+
+#notification {
+  display: none;
+}
+
+.notification {
+  background-color: rgb(0,0,0);
+  z-index: 9989;
+  min-width: 300px;
+  max-width: 50vw;
+  position: fixed;
+  bottom: 6vh;
+  right: 0.5vw;
+  padding: 10px;
+}
+
+.notification button {
+  position: relative;
+  display: inline-block;
+}
+
+button[disabled] {
+  color: rgb(128,128,128);
+}
+
+.options {
+  /*display: none;*/
+  position: relative;
+}
+
+#user-picture {
+  width: 85px;
+  height: 85px;
+  border-radius: 8px;
+  color: rgb(255,255,255);
+  background-color: rgb(0,0,80);
+  font-size: 60px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#rsod {
+  display: none;
+  font-family: DOS;
+  background-color: rgb(80,0,0);
+  color: rgb(255,255,255);
+  z-index: 10001;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+}
+
+#rsod h1 {
+  font-weight: normal;
+}
+
+.active {
+  background: linear-gradient(rgb(0,0,0), rgb(0,0,80));
+}
