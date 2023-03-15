@@ -1,0 +1,21 @@
+@font-face{
+  font-family: Windows;
+  src: url("leviwindows/Windows Regular.ttf");
+}
+
+@font-face{
+  font-family: DOS;
+  src: url("dosfont/ModernDOS8x16.ttf");
+}
+
+body {
+  font-family: Windows;
+}
+
+.window-text {
+  width: 100%;
+}
+
+.close-button {
+  width: 30px;
+}
