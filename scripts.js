@@ -1,4 +1,108 @@
 "use strict";
+var username;
+var password;
+
+var icon = {
+  "media" : "icons/tmp.svg",
+  "terminal": "icons/Shell.svg",
+  "welcome" : "icons/About Tiger.svg",
+  "settings" : "icons/Settings.svg",
+  
+}
+
+if (localStorage.getItem("user1-name") == null){
+  do {
+    username = prompt("Please enter a username:");
+  } while (username == null || username == "");
+  
+  do {
+    password = prompt("Please enter a password:");
+  } while (password == null || password == "");
+  
+  localStorage.setItem("user1-name", username);
+  localStorage.setItem("user1-pass", password);
+}
+
+else {
+  username = localStorage.getItem("user1-name");
+  password = localStorage.getItem("user1-pass");
+}
+
+document.getElementById("login").children[1].innerHTML = username;
+
+function addIcon(id){
+  if(document.getElementById("workbar" + id) == null){
+  let workbar = document.createElement("div");
+  workbar.classList.add("icon");
+  workbar.innerHTML = "<img src='" + icon[id] + "'>";
+  workbar.id = "workbar-" + id;
+  document.getElementById("icon-container").appendChild(workbar);
+  }
+}
+
+function checkPass(){
+  if (document.getElementById("password").value == password){
+    document.getElementById('login').style.display = 'none';
+    //notify('Hello world!', 'You have logged on!');
+  }
+  
+  else {
+    alert("Wrong password. Please try again.");
+  }
+  
+  let windows = document.getElementsByClassName("window");
+  let starts = document.getElementsByClassName("start");
+  for (let i = 0; i < windows.length; i++) {
+    windows[i].style.display = "none";
+  }
+  for (let j = 0; j < windows.length; j++) {
+    starts[j].style.display = "none";
+  }
+  
+}
+
+var programs = [
+  "Settings",
+  "Media Player",
+  "Terminal",
+  "Welcome"
+];
+
+classicApps();
+
+//addCSS("plex");
+//addCSS("simplistic");
+
+allDrag();
+
+function closeApp(id){
+  document.getElementById(id).style.display = "none";
+  document.getElementById("workbar-" + id).remove();
+}
+
+function classicApps(){
+  let con = document.getElementById("classic-apps-container");
+  let el;
+  let elp;
+  let onc;
+  let prog;
+  for (let i = 0; i < programs.length; i++){
+    el = document.createElement("button");
+    el.classList.add("classic-apps-button");
+    el.innerHTML = "<p>" + programs[i] + "</p>";
+    prog = programs[i].split(" ")[0].toLowerCase();
+    onc = "openApp('" + prog + "');";
+    setActive(prog);
+    el.setAttribute("onclick", onc);
+    con.appendChild(el);
+  }
+}
+
+function classicAppsClose(){
+  document.getElementById("classic-apps").style.display = "none";
+  let buttons = document.getElementsByClassName("classic-apps-button");
+  buttons.forEach(elmnt => elmnt.remove());
+}
 
 var filesystem = {
   "A:\\" : {
@@ -54,6 +158,27 @@ function terminalStorage(toGo){
   }
 }
 
+function addCSS(name){
+  let head = document.head;
+  let link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = name + ".css";
+  head.appendChild(link);
+  return link;
+  
+}
+
+function switchTheme(name){
+  let links = document.getElementsByTagName("link");
+  document.body.style.backgroundColor = "rgb(0,0,0)";
+  let head = document.head;
+  for (let i = 0; i < links.length; i++){
+    head.removeChild(links[i]);
+  }
+  addCSS("style");
+  addCSS(name);
+}
+
 function terminalKey(text) {
   if(localStorage.getItem("terminal") !== null){
     localStorage.setItem("terminal", text);
@@ -62,6 +187,10 @@ function terminalKey(text) {
   else {
     localStorage.setItem("terminal", "Nothing is stored yet.");
   }
+}
+
+function saveKey(key, text){
+  localStorage.setItem(key, text);
 }
 
 //console.error("Hello world");
@@ -204,7 +333,13 @@ function shutdown(){
 }
 
 function openApp(id){
-    document.getElementById(id).display = "block";
+    if (document.getElementById(id).style.display !== "block") {
+      addIcon(id);
+    }
+    document.getElementById(id).style.display = "block";
+    document.getElementById("start-classic").style.display = "none";
+    document.getElementById("classic-apps").style.display = "none";
+    document.getElementById("start-twocolumn").style.display = "none";
 }
 
 function getTime(){
@@ -303,20 +438,33 @@ function startup(){
 
 function menu(){
 	let menu1 = document.getElementById("start-classic");
+	let menu1apps = document.getElementById("classic-apps");
+	let menu2 = document.getElementById("start-twocolumn");
 
 	if (menu1.style.display == "none") {
 		menu1.style.display = "flex";
+		//menu2.style.display = "flex";
+		//menu1apps.style.display = "flex";
 	}
 
 	else {
+	  menu1apps.style.display = "none";
 		menu1.style.display = "none";
+		menu2.style.display = "none";
 	}
 }
 
+function allDrag(){
+  let all = document.getElementsByClassName("window");
+  for (let i = 0; i < all.length; i++){
+    dragElement(all[i]);
+  }
+}
 
-dragElement(document.getElementById("welcome"));
+
+/*dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("terminal"));
-dragElement(document.getElementById("media"));
+dragElement(document.getElementById("media"));*/
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -379,20 +527,22 @@ function setActive(toSet){
   let topbars = document.getElementsByClassName("topbar");
   let windows = document.getElementsByClassName("window");
   for (let i = 0; i < topbars.length; i++) {
-    topbars[i].style.background = "rgb(0,0,0)";
+    /*topbars[i].style.background = "rgb(0,0,0)";*/
+    topbars[i].classList.remove("active");
     windows[i].style.zIndex = "0";
   }
   
   let toChange = document.getElementById(toSet + "-topbar");
   
-  toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";
+  /*toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";*/
   document.getElementById(toSet).style.zIndex = "1000";
+  toChange.classList.add("active");
 }
 
 function removeActive(){
   let topbars = document.getElementsByClassName("topbar");
   for (let i = 0; i < topbars.length; i++) {
-    topbars[i].style.background = "rgb(0,0,0)";
+    topbars[i].classList.remove("active");
     topbars[i].style.zIndex = "0";
   }
 }

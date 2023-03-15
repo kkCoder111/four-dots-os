@@ -2,20 +2,25 @@
   font-family: DOS;
   src: url("dosfont/ModernDOS8x16.ttf");
 }
-:root{
-  --primary:#000;
-  --secondary:#777;
-  --secondary_light:#999;
-    --secondary_dark:#555;
-  --text:#fff;
-  --close:#f00;
-  --progbar:#00f;
+
+#icon-container {
+  display: flex;
+}
+
+#left-icons {
+  display: flex;
+}
+
+.warning {
+  color: rgb(200, 0, 0);
+  font-family: monospace;
+  font-size: 16px;
 }
 
 body {
-  background-color: var(--primary);
+  background-color: rgb(0,0,100);
   font-family: arial;
-  color: var(--text);
+  color: rgb(255,255,255);
   overflow: hidden;
 }
 
@@ -33,40 +38,40 @@ button {
   font-size: 20px;
   border-radius: 4px;
   border-width: 2px;
-  border-color: var(--secondary_light);
+  border-color: rgb(255,255,255);
   border-style: solid;
-  background-color: var(--secondary);
-  color: var(--text);
+  background-color: rgb(50,50,50);
+  color: rgb(255,255,255);
   height: 30px;
 }
 
 input {
   height: 30px;
-  background-color: var(--secondary);
+  background-color: rgb(50,50,50);
   border-style: solid;
-  border-color: var(--secondary_light);
+  border-color: rgb(100,100,100);
   font-family: arial;
   font-size: 20px;
-  color: var(--text);
+  color: rgb(255,255,255);
 }
 
 button:hover {
-  background-color: var(--secondary_light);
+  background-color: rgb(100,100,100);
 }
 
 button:active {
-  background-color: var(--secondary_dark);
+  background-color: rgb(150,150,150);
 }
 
 .window-button {
-  color: var(--text);
-  background-color: var(--secondary);
+  color: rgb(255,255,255);
+  background-color: rgb(0,0,0);
   border: none;
   font-weight: bold;
 }
 
 .window-button:hover {
-  background-color: var(--secondary_light);
+  background-color: rgb(55,55,55);
 }
 
 #workbar {
@@ -76,7 +81,7 @@ button:active {
   height: 5vh;
   bottom: 0px;
   left: 0px;
-  background-color: var(--secondary);
+  background: linear-gradient(rgb(0,0,0), rgb(0,0,80));;
   z-index: 9990;
 }
 
@@ -86,12 +91,14 @@ button:active {
   width: 50vw;
   height: 50vh;
   top: 0%;
-  background-color: var(--primary);
+  left: 0%;
+  background-color: rgb(0,0,0);
   border-width: 4px;
-  border-color: var(--secondary);
+  border-color: rgb(135,135,135);
   border-style: solid;
   border-radius: 8px;
   z-index: 0;
+  display: none;
 }
 
 .focused {
@@ -120,6 +127,7 @@ button:active {
 .topbar_buttons button {
   width: 30px;
   height: 30px;
+  background-color: rgba(0,0,0,0);
 }
 
 .topbar_buttons img {
@@ -144,15 +152,15 @@ button:active {
 }
 
 .icon:hover, #time:hover {
-  background-color: var(--secondary_light);
+  background-color: rgba(55,55,55, 0.5);
 }
 
 .classic-start-button {
   display: flex;
   height: 40px;
   width: 200px;
-  background-color: var(--secondary);
-  color:var(--text);
+  background-color: rgba(10,10,10, 0);
+  color:rgb(255,255,255);
   margin-top: auto;
   margin-bottom: auto;
   line-height: 0%;
@@ -173,11 +181,11 @@ button:active {
 }
 
 .classic-start-button:hover {
-  background-color: var(--secondary_light);
+  background-color: rgba(50,50,50, 0.5);
 }
 
 .classic-start-button:active {
-  background-color: var(--secondary-dark);
+  background-color: rgba(100,100,100, 0.5);
 }
 
 #classic-user-name {
@@ -191,7 +199,7 @@ button:active {
   left: 0;
   width: 200px;
   height: 240px;
-  background-color: var(--primary);
+  background-color: rgb(0,0,80);
   display: none;
 }
 
@@ -204,13 +212,15 @@ button:active {
 #classic-banner {
   height: 48vh;
   width: 30px;
-  background-color: var(--secondary);
+  background-color: rgb(0,0,80);
   bottom: 5vh;
   transform: rotate(270deg);
 }
 
 #time {
-  margin-left: auto;
+  position: fixed;
+  right: 0%;
+  bottom: 0.25vh;
   font-size: 3vh;
   line-height: 150%;
   padding-left: 10px;
@@ -223,7 +233,7 @@ button:active {
   z-index: 9999;
   width: 100vw;
   height: 100vh;
-  background-color: var(--primary);
+  background-color: rgb(0,0,0);
   margin: auto;
   left: 0%;
   top: 0%;
@@ -240,7 +250,7 @@ button:active {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: var(--primary);
+  background-color: rgb(0,0,0);
 }
 
 #startup {
@@ -253,7 +263,7 @@ button:active {
   margin: auto;
   font-size: 30px;
   text-align: center;
-  background-color: var(--primary);
+  background-color: rgb(0,0,0);
 }
 
 #welcome {
@@ -275,17 +285,17 @@ button:active {
 
 .close-button {
   width: 60px !important;
-  background-color: var(--close);
+  background-color: rgb(0,0,0);
 }
 
 .close-button:hover {
-  background-color: var(--close);
+  background-color: rgb(85,0,0);
 }
 
 .fullscreen {
   display: none;
   z-index: 9998;
-  background-color: var(--secondary);
+  background-color: rgba(50,50,50, 0.5);
   margin: 0px;
   position: fixed;
   top : 0;
@@ -300,14 +310,14 @@ button:active {
   position: fixed;
   width: 500px;
   height: 200px;
-  background-color: var(--primary);
+  background-color: rgb(0,0,0);
   top: 35%;
   left: 30%;
 }
 
 .dialog-title {
   text-align: center;
-  background-color: var(--secondary);
+  background-color: rgb(0, 0, 80);
   height: 30px;
   line-height: 200%;
 }
@@ -326,7 +336,7 @@ button:active {
 .open {
   width: 25px;
   height: 5px;
-  background-color: var(--secondary);
+  background-color: rgb(0,0,85);
 }
 
 #shutdownscreen {
@@ -337,8 +347,8 @@ button:active {
 .mpbutton {
   width: 74px;
   height: 74px;
-  background-color: var(--secondary);
-  border-color: var(--secondary_light);
+  background-color: rgb(125,125,125);
+  border-color: rgb(100,100,100);
 }
 
 .mpbutton img {
@@ -360,7 +370,7 @@ button:active {
 
 progress[value]::-webkit-progress-bar {
   border-radius: 5px;
-  background-color: var(--progbar);
+  background-color: rgb(128, 128, 128);
 }
 
 progress[value] {
@@ -370,7 +380,7 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-value {
-  background-color: var(--progbar);
+  background-color: rgb(0,0,80);
   border-radius: 5px;
 }
 
@@ -389,7 +399,7 @@ progress[value]::-webkit-progress-value {
 }
 
 .notification {
-  background-color: var(--primary);
+  background-color: rgb(0,0,0);
   z-index: 9989;
   min-width: 300px;
   max-width: 50vw;
@@ -405,7 +415,7 @@ progress[value]::-webkit-progress-value {
 }
 
 button[disabled] {
-  color: var(--secondary_dark);
+  color: rgb(128,128,128);
 }
 
 .options {
@@ -417,8 +427,8 @@ button[disabled] {
   width: 85px;
   height: 85px;
   border-radius: 8px;
-  color: var(--text);
-  background-color: var(--secondary);
+  color: rgb(255,255,255);
+  background-color: rgb(0,0,80);
   font-size: 60px;
 }
 
@@ -441,4 +451,102 @@ ul {
 
 #rsod h1 {
   font-weight: normal;
+}
+
+.active {
+  background: linear-gradient(rgb(0,0,0), rgb(0,0,80));
+}
+
+.workbar:first-child {
+  margin-left: 0 !important;
+}
+
+#sidebar {
+  width: 20vw;
+  height: 92.5vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(50,50,50,0.5));
+  z-index: 9990;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  padding: 10px;
+}
+
+.widget{
+  width: 100%;
+  height: 200px;
+  background-color: rgb(50,50,50);
+  border-radius: 10px;
+}
+
+#clock-widget {
+  background-color: rgb(75,75,75);
+  text-align: center;
+  font-size: 65px;
+  height: 100px;
+}
+
+#clock-widget div {
+  margin: auto;
+  margin-top: 25%;
+  background-color: #1b3618;
+}
+
+#logoicon img {
+  position: relative;
+  left: .125em;
+  bottom: -.125em;
+  width: 4.5vh;
+  margin: auto !important;
+  text-align: center;
+}
+
+#start-twocolumn {
+  width: 360px;
+  height: 480px;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  display: none;
+  z-index: 2089;
+  background-color: rgb(0,0,0);
+  background-image: url("resources/TwoColumn2.svg");
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+
+#classic-apps {
+  position: fixed;
+  bottom: 5vh;
+  left: 0;
+  width: 200px;
+  height: 240px;
+  background-color: rgb(0,0,80);
+  display: none;
+}
+
+#classic-apps-container {
+  overflow-y: auto;
+}
+
+.classic-apps-button {
+  display: flex;
+  height: 20px;
+  width: 200px;
+  background-color: rgba(10,10,10, 0);
+  color:rgb(255,255,255);
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0%;
+  font-family: arial;
+  border: none;
+}
+
+.classic-apps-button p {
+  font-family: inherit;
+  font-size: 10px;
+}
+
+#classic-apps-container {
+  overflow-y: auto;
 }

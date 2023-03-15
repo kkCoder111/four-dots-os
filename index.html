@@ -3,7 +3,7 @@
 <html>
   
   <head>
-  	<title>Four Dots OS milestone 1</title>
+  	<title>Four Dots OS milestone 2</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icons/fourdots.svg">
   </head>
@@ -21,8 +21,7 @@
   	  <img src="icons/user.svg">
   		<p>user</p>
   		<input id="password" type="password" placeholder="Password">
-  		<button onclick="document.getElementById('login').style.display = 'none';
-  		notify('Hello world!', 'You have logged on!');">Go</button>
+  		<button onclick="checkPass();">Go</button>
   		<button onclick="
   		if(document.getElementById('password').type == 'password') {
   			document.getElementById('password').type = 'text';
@@ -51,10 +50,10 @@
   	  </div>
   	</div>
     <div id="workbar">
-      <div class="icon" onclick="menu();"><img src="icons/fourdots.svg"></div>
-      <div class="icon"><img src="icons/Stella.svg"></div>
-      <div class="icon"><img src="icons/tmp.svg"></div>
-      <div class="icon" ondblclick="dclick('terminal');"><img src="icons/Shell.svg"></div>
+      <div id="left-icons">
+      <div id="logoicon" class="icon" onclick="menu();"><img src="icons/fourdots.svg"></div>
+      <div id="icon-container">
+      </div>
       <div id="time" onclick="getTime();"></div>
     </div>
     
@@ -146,21 +145,66 @@
         <p id="music-duration">--:--</p>
       </div>
     </div>
+    
+    <div id="settings" class="window" onclick="setActive('settings');">
+      <div class="topbar" id="settings-topbar">
+        <div class="window-text">
+          <p id="settings-text">Settings</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button">□</button>
+          <button class="window-button close-button" onclick="closeApp('settings');">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <h1>Settings</h1>
+        <h2>Theme</h2>
+        <p class="warning">WARNING: COULD BREAK STYLING. If this happens, just reload the page.</p>
+        <select name="theme" id="theme" selected="simplistic">
+          <option value="style">Studio</option>
+          <option value="plex">2000</option>
+          <option value="simplistic">Simplistic</option>
+        </select>
+        <button onclick="switchTheme(document.getElementById('theme').value);">Apply</button>
+      </div>
+    </div>
 
 
     
     <div id="start-classic" class="start">
       <div id="classic-buttons">
-      <button class="classic-start-button" onclick=""><img src="icons/fourdots.svg"><p>About Four Dots</p></button>
-      <button class="classic-start-button"><img src="icons/Start Apps.svg"><p>Programs</p></button>
-      <button class="classic-start-button"><img src="icons/Settings.svg"><p>Settings</p></button>
-      <button class="classic-start-button"><img src="icons/Exit.svg"><p>Log Off</p></button>
+      <button class="classic-start-button" onclick="alert('Four Dots OS, 1.0-m2');"><img src="icons/fourdots.svg"><p>About Four Dots</p></button>
+      <button class="classic-start-button" onclick="document.getElementById('classic-apps').style.display = 'flex';"><img src="icons/Start Apps.svg"><p>Programs</p></button>
+      <button class="classic-start-button" onclick="openApp('settings');"><img src="icons/Settings.svg"><p>Settings</p></button>
+      <button class="classic-start-button" onclick="document.getElementById('login').style.display = 'block'; document.getElementById('password').value = '';"><img src="icons/Exit.svg"><p>Log Off</p></button>
       <button class="classic-start-button" onclick="document.getElementById('shutdown').style.display = 'block';"><img src="icons/Power.svg"><p>Shut Down</p></button>
       <button class="classic-start-button" onclick="location.reload();"><img src="icons/Power.svg"><p>Restart</p></button>
       </div>
     </div>
     
-    <div id="start-twocolumn"></div>
+    <div id="classic-apps" class="start">
+      <div id="classic-buttons">
+      <button class="classic-start-button" onclick="document.getElementById('classic-apps').style.display = 'none';"><p>Back</p></button>
+      <div id="classic-apps-container">
+        <p>See all of your apps here.</p>
+      </div>
+      </div>
+    </div>
+    
+    <div id="start-twocolumn" class="start">
+      <p>Hello</p>
+    </div>
+    
+    <!--<div id="sidebar">
+      <h2>Sidebar</h2>
+      <<div id="clock-widget" class="widget">
+        <div>
+          <p>12:22:05</p>
+        </div>
+      </div>
+    </div>-->
     
     <template class="notification" id="notification">
       <h2>Notification Renderer</h2>
