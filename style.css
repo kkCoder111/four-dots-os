@@ -5,8 +5,8 @@
 :root{
   --primary:#000;
   --secondary:#777;
-  --secondary_light:#999
-    --secondary_dark:#555
+  --secondary_light:#999;
+    --secondary_dark:#555;
   --text:#fff;
   --close:#f00;
   --progbar:#00f;
