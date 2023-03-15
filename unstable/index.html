@@ -146,6 +146,28 @@
         <p id="music-duration">--:--</p>
       </div>
     </div>
+    
+    <div id="settings" class="window" onclick="setActive('settings');">
+      <div class="topbar" id="settings-topbar">
+        <div class="window-text">
+          <p id="settings-text">Settings</p>
+        </div>
+        <div class="topbar_buttons">
+          <button class="window-button">-</button>
+          <button class="window-button" disabled>□</button>
+          <button class="window-button close-button" onclick="document.getElementById('settings').style.display = 'none';">X</button>
+        </div>
+        
+      </div>
+      <div class="content">
+        <p>Theme</p>
+        <select name="theme" id="theme">
+          <option value="studio">Studio</option>
+          <option value="plex">Plex</option>
+        </select>
+        <button>Apply</button>
+      </div>
+    </div>
 
 
     

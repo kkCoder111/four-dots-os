@@ -1,5 +1,9 @@
 "use strict";
 
+addCSS("plex");
+
+allDrag();
+
 var filesystem = {
   "A:\\" : {
     "SYSTEM.dir" : {
@@ -52,6 +56,15 @@ function terminalStorage(toGo){
 	  spitOut("Stored the following in Terminal storage:");
 	  spitOut(localStorage.terminal);
   }
+}
+
+function addCSS(name){
+  let head = document.head;
+  let link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = name + ".css";
+  head.appendChild(link);
+  
 }
 
 function terminalKey(text) {
@@ -313,10 +326,17 @@ function menu(){
 	}
 }
 
+function allDrag(){
+  let all = document.getElementsByClassName("window");
+  for (let i = 0; i < all.length; i++){
+    dragElement(all[i]);
+  }
+}
 
-dragElement(document.getElementById("welcome"));
+
+/*dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("terminal"));
-dragElement(document.getElementById("media"));
+dragElement(document.getElementById("media"));*/
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -379,14 +399,16 @@ function setActive(toSet){
   let topbars = document.getElementsByClassName("topbar");
   let windows = document.getElementsByClassName("window");
   for (let i = 0; i < topbars.length; i++) {
-    topbars[i].style.background = "rgb(0,0,0)";
+    /*topbars[i].style.background = "rgb(0,0,0)";*/
+    topbars[i].classList.remove("active");
     windows[i].style.zIndex = "0";
   }
   
   let toChange = document.getElementById(toSet + "-topbar");
   
-  toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";
+  /*toChange.style.background = "linear-gradient(rgb(0,0,0), rgb(0,0,80)";*/
   document.getElementById(toSet).style.zIndex = "1000";
+  toChange.classList.add("active");
 }
 
 function removeActive(){

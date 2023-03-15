@@ -6,4 +6,7 @@ Check it out here: <a href="https://kkcoder111.github.io/four-dots-os/">https://
 
 Go to the wiki to check out some features which might be coming soon! :-)
 
-IMPORTANT: Unstable is no longer available. Untested changes should go in their own respective branch(es).
+IMPORTANT: All changes to code that are not untested should go in the unstable folder.
+
+
+Unstable version: <a href="https://kkcoder111.github.io/four-dots-os/unstable/">click here</a>
