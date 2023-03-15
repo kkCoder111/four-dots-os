@@ -337,8 +337,8 @@ button:active {
 .mpbutton {
   width: 74px;
   height: 74px;
-  background-color: var(--primary);
-  border-color: var(--secondary);
+  background-color: var(--secondary);
+  border-color: var(--secondary_light);
 }
 
 .mpbutton img {
