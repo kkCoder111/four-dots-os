@@ -370,7 +370,7 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-value {
-  background-color: var(--progbar);
+  background-color: rgb(0,0,0);
   border-radius: 5px;
 }
 
