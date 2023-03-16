@@ -2,25 +2,20 @@
   font-family: DOS;
   src: url("dosfont/ModernDOS8x16.ttf");
 }
-
-#icon-container {
-  display: flex;
-}
-
-#left-icons {
-  display: flex;
-}
-
-.warning {
-  color: rgb(200, 0, 0);
-  font-family: monospace;
-  font-size: 16px;
+:root{
+  --primary:#000;
+  --secondary:#777;
+  --secondary_light:#999;
+    --secondary_dark:#555;
+  --text:#fff;
+  --close:#f00;
+  --progbar:#00f;
 }
 
 body {
-  background-color: rgb(0,0,100);
+  background-color: var(--primary);
   font-family: arial;
-  color: rgb(255,255,255);
+  color: var(--text);
   overflow: hidden;
 }
 
@@ -38,40 +33,40 @@ button {
   font-size: 20px;
   border-radius: 4px;
   border-width: 2px;
-  border-color: rgb(255,255,255);
+  border-color: var(--secondary_light);
   border-style: solid;
-  background-color: rgb(50,50,50);
-  color: rgb(255,255,255);
+  background-color: var(--secondary);
+  color: var(--text);
   height: 30px;
 }
 
 input {
   height: 30px;
-  background-color: rgb(50,50,50);
+  background-color: var(--secondary);
   border-style: solid;
-  border-color: rgb(100,100,100);
+  border-color: var(--secondary_light);
   font-family: arial;
   font-size: 20px;
-  color: rgb(255,255,255);
+  color: var(--text);
 }
 
 button:hover {
-  background-color: rgb(100,100,100);
+  background-color: var(--secondary_light);
 }
 
 button:active {
-  background-color: rgb(150,150,150);
+  background-color: var(--secondary_dark);
 }
 
 .window-button {
-  color: rgb(255,255,255);
-  background-color: rgb(0,0,0);
+  color: var(--text);
+  background-color: var(--secondary);
   border: none;
   font-weight: bold;
 }
 
 .window-button:hover {
-  background-color: rgb(55,55,55);
+  background-color: var(--secondary_light);
 }
 
 #workbar {
@@ -81,7 +76,7 @@ button:active {
   height: 5vh;
   bottom: 0px;
   left: 0px;
-  background: linear-gradient(rgb(0,0,0), rgb(0,0,80));;
+  background-color: var(--secondary);
   z-index: 9990;
 }
 
@@ -91,14 +86,12 @@ button:active {
   width: 50vw;
   height: 50vh;
   top: 0%;
-  left: 0%;
-  background-color: rgb(0,0,0);
+  background-color: var(--primary);
   border-width: 4px;
-  border-color: rgb(135,135,135);
+  border-color: var(--secondary);
   border-style: solid;
   border-radius: 8px;
   z-index: 0;
-  display: none;
 }
 
 .focused {
@@ -127,7 +120,6 @@ button:active {
 .topbar_buttons button {
   width: 30px;
   height: 30px;
-  background-color: rgba(0,0,0,0);
 }
 
 .topbar_buttons img {
@@ -152,15 +144,15 @@ button:active {
 }
 
 .icon:hover, #time:hover {
-  background-color: rgba(55,55,55, 0.5);
+  background-color: var(--secondary_light);
 }
 
 .classic-start-button {
   display: flex;
   height: 40px;
   width: 200px;
-  background-color: rgba(10,10,10, 0);
-  color:rgb(255,255,255);
+  background-color: var(--secondary);
+  color:var(--text);
   margin-top: auto;
   margin-bottom: auto;
   line-height: 0%;
@@ -181,11 +173,11 @@ button:active {
 }
 
 .classic-start-button:hover {
-  background-color: rgba(50,50,50, 0.5);
+  background-color: var(--secondary_light);
 }
 
 .classic-start-button:active {
-  background-color: rgba(100,100,100, 0.5);
+  background-color: var(--secondary-dark);
 }
 
 #classic-user-name {
@@ -199,7 +191,7 @@ button:active {
   left: 0;
   width: 200px;
   height: 240px;
-  background-color: rgb(0,0,80);
+  background-color: var(--primary);
   display: none;
 }
 
@@ -212,15 +204,13 @@ button:active {
 #classic-banner {
   height: 48vh;
   width: 30px;
-  background-color: rgb(0,0,80);
+  background-color: var(--secondary);
   bottom: 5vh;
   transform: rotate(270deg);
 }
 
 #time {
-  position: fixed;
-  right: 0%;
-  bottom: 0.25vh;
+  margin-left: auto;
   font-size: 3vh;
   line-height: 150%;
   padding-left: 10px;
@@ -233,7 +223,7 @@ button:active {
   z-index: 9999;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0,0,0);
+  background-color: var(--primary);
   margin: auto;
   left: 0%;
   top: 0%;
@@ -250,7 +240,7 @@ button:active {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0,0,0);
+  background-color: var(--primary);
 }
 
 #startup {
@@ -263,7 +253,7 @@ button:active {
   margin: auto;
   font-size: 30px;
   text-align: center;
-  background-color: rgb(0,0,0);
+  background-color: var(--primary);
 }
 
 #welcome {
@@ -285,17 +275,17 @@ button:active {
 
 .close-button {
   width: 60px !important;
-  background-color: rgb(0,0,0);
+  background-color: var(--close);
 }
 
 .close-button:hover {
-  background-color: rgb(85,0,0);
+  background-color: var(--close);
 }
 
 .fullscreen {
   display: none;
   z-index: 9998;
-  background-color: rgba(50,50,50, 0.5);
+  background-color: var(--secondary);
   margin: 0px;
   position: fixed;
   top : 0;
@@ -310,14 +300,14 @@ button:active {
   position: fixed;
   width: 500px;
   height: 200px;
-  background-color: rgb(0,0,0);
+  background-color: var(--primary);
   top: 35%;
   left: 30%;
 }
 
 .dialog-title {
   text-align: center;
-  background-color: rgb(0, 0, 80);
+  background-color: var(--secondary);
   height: 30px;
   line-height: 200%;
 }
@@ -336,7 +326,7 @@ button:active {
 .open {
   width: 25px;
   height: 5px;
-  background-color: rgb(0,0,85);
+  background-color: var(--secondary);
 }
 
 #shutdownscreen {
@@ -347,8 +337,8 @@ button:active {
 .mpbutton {
   width: 74px;
   height: 74px;
-  background-color: rgb(125,125,125);
-  border-color: rgb(100,100,100);
+  background-color: var(--secondary);
+  border-color: var(--secondary_light);
 }
 
 .mpbutton img {
@@ -370,7 +360,7 @@ button:active {
 
 progress[value]::-webkit-progress-bar {
   border-radius: 5px;
-  background-color: rgb(128, 128, 128);
+  background-color: var(--progbar);
 }
 
 progress[value] {
@@ -380,7 +370,7 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-value {
-  background-color: rgb(0,0,80);
+  background-color: var(--progbar);
   border-radius: 5px;
 }
 
@@ -399,7 +389,7 @@ progress[value]::-webkit-progress-value {
 }
 
 .notification {
-  background-color: rgb(0,0,0);
+  background-color: var(--primary);
   z-index: 9989;
   min-width: 300px;
   max-width: 50vw;
@@ -415,7 +405,7 @@ progress[value]::-webkit-progress-value {
 }
 
 button[disabled] {
-  color: rgb(128,128,128);
+  color: var(--secondary_dark);
 }
 
 .options {
@@ -427,8 +417,8 @@ button[disabled] {
   width: 85px;
   height: 85px;
   border-radius: 8px;
-  color: rgb(255,255,255);
-  background-color: rgb(0,0,80);
+  color: var(--text);
+  background-color: var(--secondary);
   font-size: 60px;
 }
 
@@ -436,6 +426,22 @@ ul {
   list-style-type: none;
 }
 
+#rsod {
+  display: none;
+  font-family: DOS;
+  background-color: rgb(80,0,0);
+  color: rgb(255,255,255);
+  z-index: 10001;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+}
+
+#rsod h1 {
+  font-weight: normal;
+}
 #rsod {
   display: none;
   font-family: DOS;
