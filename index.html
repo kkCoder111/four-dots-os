@@ -47,7 +47,7 @@
   	  <div class="power-dialog">
   	    <p class="dialog-title">Shutdown</p>
   	    <p>Are you sure you wish to shutdown?</p>
-  	    <button onclick="shutdown();">Yes</button><button onclick="document.getElementById('shutdown').style.display = 'none';">No</button>
+  	    <button onclick="shutdown();">Yes</button><button onclick="closeApp('shutdown');">No</button>
   	  </div>
   	</div>
     <div id="workbar">
@@ -70,7 +70,7 @@
         <div class="topbar_buttons">
           <button class="window-button">-</button>
           <button class="window-button">□</button>
-          <button class="window-button close-button" onclick="document.getElementById('welcome').style.display = 'none';">X</button>
+          <button class="window-button close-button" onclick="closeApp('welcome');">X</button>
         </div>
         
       </div>
@@ -92,7 +92,7 @@
         <div class="topbar_buttons">
           <button class="window-button">-</button>
           <button class="window-button">□</button>
-          <button class="window-button close-button" onclick="document.getElementById('terminal').style.display = 'none';">X</button>
+          <button class="window-button close-button" onclick="closeApp('terminal');">X</button>
         </div>
       </div>
       
@@ -126,7 +126,7 @@
         <div class="topbar_buttons">
           <button class="window-button">-</button>
           <button class="window-button" disabled>□</button>
-          <button class="window-button close-button" onclick="document.getElementById('media').style.display = 'none';">X</button>
+          <button class="window-button close-button" onclick="closeApp('media');">X</button>
         </div>
         
       </div>
