@@ -1,3 +1,7 @@
+window.onload = function(){
+  startmeup();
+}
+
 "use strict";
 var username;
 var password;
@@ -8,6 +12,12 @@ var icon = {
   "welcome" : "icons/About Tiger.svg",
   "settings" : "icons/Settings.svg",
   
+}
+
+var hellobase64 = "SGVsbG8=";
+
+if(btoa("Hello") != hellobase64) {
+  alert("Error: BASE64 tests failed");
 }
 
 if (localStorage.getItem("user1-name") == null){
@@ -443,7 +453,7 @@ function menu(){
 
 	if (menu1.style.display == "none") {
 		menu1.style.display = "flex";
-		//menu2.style.display = "flex";
+		menu2.style.display = "flex";
 		//menu1apps.style.display = "flex";
 	}
 
@@ -550,4 +560,8 @@ function removeActive(){
 function increaseZIndex(toSet){
   let toChange = document.getElementById(toSet + "-topbar");
   toSet.style.zIndex = toSet.style.zIndex;
+}
+
+function startmeup(){
+  document.getElementById("startup").style.display = "none";
 }
