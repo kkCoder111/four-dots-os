@@ -2,14 +2,23 @@
   font-family: DOS;
   src: url("dosfont/ModernDOS8x16.ttf");
 }
+
 :root{
-  --primary:#000;
+  --primary: rgb(0,0,80);
   --secondary:#777;
   --secondary_light:#999;
-    --secondary_dark:#555;
+  --secondary_dark:#555;
+  --black: #000000;
   --text:#fff;
-  --close:#f00;
+  --close: rgb(80,0,0);
   --progbar:#000050;
+  --taskbar: linear-gradient(rgb(0,0,0), rgb(0,0,80));
+  --transparent: rgba(0,0,0,0);
+  --hover: rgba(128,128,128,0.5);
+}
+
+input {
+  outline: none;
 }
 
 body {
@@ -35,7 +44,7 @@ button {
   border-width: 2px;
   border-color: var(--secondary_light);
   border-style: solid;
-  background-color: var(--secondary);
+  background-color: var(--black);
   color: var(--text);
   height: 30px;
 }
@@ -51,22 +60,22 @@ input {
 }
 
 button:hover {
-  background-color: var(--secondary_light);
+  background-color: var(--secondary_dark);
 }
 
 button:active {
-  background-color: var(--secondary_dark);
+  background-color: var(--secondary_light);
 }
 
 .window-button {
   color: var(--text);
-  background-color: var(--secondary);
+  background-color: var(--transparent);
   border: none;
   font-weight: bold;
 }
 
 .window-button:hover {
-  background-color: var(--secondary_light);
+  background-color: var(--secondary_dark);
 }
 
 #workbar {
@@ -76,8 +85,12 @@ button:active {
   height: 5vh;
   bottom: 0px;
   left: 0px;
-  background-color: var(--secondary);
+  background: var(--taskbar) !important;
   z-index: 9990;
+}
+
+#left-icons {
+  display: flex;
 }
 
 .window {
@@ -86,7 +99,7 @@ button:active {
   width: 50vw;
   height: 50vh;
   top: 0%;
-  background-color: var(--primary);
+  background-color: var(--black);
   border-width: 4px;
   border-color: var(--secondary);
   border-style: solid;
@@ -144,14 +157,14 @@ button:active {
 }
 
 .icon:hover, #time:hover {
-  background-color: var(--secondary_light);
+  background-color: var(--hover);
 }
 
 .classic-start-button {
   display: flex;
   height: 40px;
   width: 200px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   color:var(--text);
   margin-top: auto;
   margin-bottom: auto;
@@ -173,11 +186,11 @@ button:active {
 }
 
 .classic-start-button:hover {
-  background-color: var(--secondary_light);
+  background-color: var(--hover);
 }
 
 .classic-start-button:active {
-  background-color: var(--secondary-dark);
+  background-color: rgb(0,0,0);
 }
 
 #classic-user-name {
@@ -211,6 +224,11 @@ button:active {
 
 #time {
   margin-left: auto;
+  z-index: 9991;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: #ffffff;
   font-size: 3vh;
   line-height: 150%;
   padding-left: 10px;
@@ -275,7 +293,7 @@ button:active {
 
 .close-button {
   width: 60px !important;
-  background-color: var(--close);
+  background-color: var(--transparent);
 }
 
 .close-button:hover {
@@ -370,7 +388,7 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-value {
-  background-color: rgb(20,20,20) !important;
+  background-color: rgb(20,20,20);
   border-radius: 5px;
 }
 
@@ -460,11 +478,19 @@ ul {
 }
 
 .active {
-  background: linear-gradient(rgb(0,0,0), rgb(0,0,80));
+  background: var(--taskbar);
 }
 
-.workbar:first-child {
+#workbar:first-child {
   margin-left: 0 !important;
+}
+
+#icon-container {
+  display: flex;
+}
+
+#icon-container div {
+  /*z-index: 9991;*/
 }
 
 #sidebar {
@@ -521,6 +547,12 @@ ul {
   background-size:contain;
 }
 
+#start-twocolumn h2 {
+  position: relative;
+  left: 60px;
+  top: 0%;
+}
+
 #classic-apps {
   position: fixed;
   bottom: 5vh;
@@ -555,4 +587,41 @@ ul {
 
 #classic-apps-container {
   overflow-y: auto;
+}
+
+#password {
+  border-radius: 12px;
+  background-color: rgb(50,50,50,0.5);
+  height: 40px;
+}
+
+.start button {
+  font-weight: bold;
+}
+
+#startanim {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#startanim::-webkit-progress-bar, #startanim {
+  background-color: rgb(20,0,0) !important;
+}
+
+#startanim::webkit-progress-value {
+  background-color: rgb(80,0,0) !important;
+  width: 50%;
+}
+
+#kernel-boot {
+  font-family: monospace;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--black);
+  z-index: 100000;
+  color: #ffffff;
 }
