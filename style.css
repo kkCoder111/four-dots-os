@@ -8,7 +8,7 @@
   --secondary:#777;
   --secondary_light:#999;
   --secondary_dark:#555;
-  --black: #000000;
+  --windbg: #000000;
   --text:#fff;
   --close: rgb(80,0,0);
   --progbar:#000050;
@@ -44,7 +44,7 @@ button {
   border-width: 2px;
   border-color: var(--secondary_light);
   border-style: solid;
-  background-color: var(--black);
+  background-color: var(--primary);
   color: var(--text);
   height: 30px;
 }
@@ -99,7 +99,7 @@ button:active {
   width: 50vw;
   height: 50vh;
   top: 0%;
-  background-color: var(--black);
+  background-color: var(--windbg);
   border-width: 4px;
   border-color: var(--secondary);
   border-style: solid;
@@ -621,7 +621,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--black);
+  background-color: var(--primary);
   z-index: 100000;
-  color: #ffffff;
+  color: var(--text);
 }
