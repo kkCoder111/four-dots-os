@@ -13,7 +13,6 @@
   --close: rgb(80,0,0);
   --progbar:#000050;
   --taskbar: linear-gradient(rgb(0,0,0), rgb(0,0,80));
-  --transparent: rgba(0,0,0,0);
   --hover: rgba(128,128,128,0.5);
 }
 
@@ -69,7 +68,7 @@ button:active {
 
 .window-button {
   color: var(--text);
-  background-color: var(--transparent);
+  background-color: var(--primary);
   border: none;
   font-weight: bold;
 }
@@ -292,8 +291,8 @@ button:active {
 }
 
 .close-button {
-  width: 60px !important;
-  background-color: var(--transparent);
+  width: 30px !important;
+  background-color: var(--primary);
 }
 
 .close-button:hover {
