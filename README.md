@@ -1,7 +1,7 @@
 
 # Four Dots OS
 
-This is a Web OS simulator that is currently in development. 
+This is a Web OS simulator that is no longer in development (as of 2023). 
 Features did break (that's for sure).
 Check it out here: <https://kkcoder111.github.io/four-dots-os/>
 
